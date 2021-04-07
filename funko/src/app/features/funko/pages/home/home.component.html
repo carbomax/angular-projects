@@ -1,0 +1,38 @@
+<div class="example-container" >
+<mat-toolbar color="primary">
+  <span>Application</span>
+
+    <button (click)="sidenav.toggle()"  mat-icon-button color="secondary" aria-label="Menu icon">
+        <mat-icon *ngIf="!opened">menu</mat-icon>
+        <mat-icon *ngIf="opened">menu_open</mat-icon>
+    </button>
+
+</mat-toolbar>
+<mat-sidenav-container class="example-sidenav-container">
+
+    <mat-sidenav #sidenav [mode]=" 'side'" fixedTopGap="56"  [(opened)]="opened" (opened)="opened = true" (closed)="opened = false">
+
+        <mat-nav-list>
+            <div mat-subheader>Products</div>
+            <a mat-list-item>
+                <mat-icon mat-list-icon>add</mat-icon>
+                <span>Add Product</span>
+            </a>
+
+            <a mat-list-item>
+                <mat-icon mat-list-icon>list</mat-icon>
+                <span>List Products</span>
+            </a>
+        </mat-nav-list>
+    </mat-sidenav>
+
+    <mat-sidenav-content>
+
+
+        <router-outlet></router-outlet>
+    </mat-sidenav-content>
+
+
+</mat-sidenav-container>
+</div>
+
